@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,100;9..40,300;9..40,400;9..40,500;9..40,700;9..40,800&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'DM Sans', sans-serif;
+  /* border: 2px solid red; */
+}
+
+a{
+  text-decoration: none;
+}
+
+
+@media screen and (max-width: 550px) {
+  .header{
+    padding: 20px 2%;
+  }
+
+  .icons{
+    width: 300px !important;
+  }
+  .herosec{
+    width: 300px !important;
+    margin-left: 2%;
+  }
+  .searchbar{
+    display: none !important;
+  }
+  .logoname{
+    font-size: 16px;
+  }
+  .logo, .menuicon{
+    width: 35px;
+  }
+  .signin{
+    font-size: 14px;
+  }
+  .overview{
+    width: 300px;
+  }
+  .auth{
+    width: 100px !important;
+  }
+  .container{
+    padding-left: 2% !important;
+    padding-right: 2% !important;
+  }
+}
