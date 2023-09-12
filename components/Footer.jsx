@@ -1,13 +1,17 @@
 import React from "react";
+import facebook from "../src/assets/imgs/fa-brands_facebook-square.png"
+import instagram from "../src/assets/imgs/fa-brands_instagram.png"
+import twitter from "../src/assets/imgs/fa-brands_twitter.png"
+import youtube from "../src/assets/imgs/fa-brands_youtube.png"
 
 const Footer = () => {
     return ( 
         <footer className="flex items-center flex-col justify-between my-14 mx-5% text-center">
             <div>
-                <a className="mr-4" href=""><img src="../src/assets/imgs/fa-brands_facebook-square.png" alt="" /></a>
-                <a  className="mr-4" href=""><img src="../src/assets/imgs/fa-brands_instagram.png" alt="" /></a>
-                <a  className="mr-4" href=""><img src="../src/assets/imgs/fa-brands_twitter.png" alt="" /></a>
-                <a  href=""><img src="../src/assets/imgs/fa-brands_youtube.png" alt="" /></a>
+                <a className="mr-4" href=""><img src={facebook} alt="" /></a>
+                <a  className="mr-4" href=""><img src={instagram} alt="" /></a>
+                <a  className="mr-4" href=""><img src={twitter} alt="" /></a>
+                <a  href=""><img src={youtube} alt="" /></a>
             </div>
 
             <div className="my-4">

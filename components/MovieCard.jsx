@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import favouritelike from "../src/assets/imgs/Favorite.png"
+import unfavouritelike from "../src/assets/imgs/Unfavorite.png"
 
 const MovieCard = ({ movie }) => {
   const [favourite, setFavourite] = useState(false);
@@ -9,8 +11,8 @@ const MovieCard = ({ movie }) => {
   }
 
   const like = favourite
-    ? "../src/assets/imgs/Favorite.png"
-    : "../src/assets/imgs/Unfavorite.png";
+    ? favouritelike
+    : unfavouritelike;
 
   return (
     <Link  className="box" data-testid="movie-card">
