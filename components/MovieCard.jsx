@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import favouritelike from "../src/assets/imgs/Favorite.png"
 import unfavouritelike from "../src/assets/imgs/Unfavorite.png"
+import IMDbPNG from "../src/assets/imgs/IMDb.png"
+import fruit from "../src/assets/imgs/fruit.png"
 
 const MovieCard = ({ movie }) => {
   const [favourite, setFavourite] = useState(false);
@@ -42,11 +44,11 @@ const MovieCard = ({ movie }) => {
 
         <div className="flex items-center justify-between mb-2">
           <div className="flex items-center">
-            <img src="../src/assets/imgs/IMDb.png" alt="" />{" "}
+            <img src={IMDbPNG} alt="" />{" "}
             <p className="text-12px ml-2">86.0 / 100</p>
           </div>
           <div className="flex items-center">
-            <img src="../src/assets/imgs/fruit.png" alt="" />{" "}
+            <img src={fruit} alt="" />{" "}
             <p className="text-12px ml-2">97%</p>
           </div>
         </div>

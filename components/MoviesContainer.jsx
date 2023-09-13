@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import requests from "./Request";
 import MovieCard from "./MovieCard";
 
-const Movies = () => {
+const MoviesContainer = () => {
     const [moviesDetails, setMoviesDetails] = useState([])
     const [loading, setLoading] = useState(true);
 
@@ -56,4 +56,4 @@ const Movies = () => {
   );
 };
 
-export default Movies
+export default MoviesContainer;
