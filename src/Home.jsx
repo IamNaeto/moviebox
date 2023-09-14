@@ -69,7 +69,7 @@ function Home() {
           </header>
 
 
-          <section className='ml-3 md:ml-5% text-white w-95% md:w-full mt-20'>
+          <section className='ml-3 md:ml-5% text-white w-95% mt-20'>
             <h1 className='text-10 md:text-12'>{movie?.title}</h1>
 
             <div className='flex my-3 text-4 w-full'>

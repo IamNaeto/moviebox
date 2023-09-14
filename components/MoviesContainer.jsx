@@ -32,7 +32,7 @@ const MoviesContainer = () => {
    
 
   return (
-    <section className="py-5 px-3% md:px-10% md:px-5% sm:px-5%  container">
+    <section className="py-5 px-3% md:px-10% sm:px-5%  container">
       <div className="flex justify-between items-center">
         <h1 className="text-5 md:text-6">Featured Movies</h1>
 
