@@ -32,11 +32,11 @@ const MoviesContainer = () => {
    
 
   return (
-    <section className="py-20px px-10% container">
+    <section className="py-5 px-3% md:px-10% md:px-5% sm:px-5%  container">
       <div className="flex justify-between items-center">
-        <h1>Featured Movies</h1>
+        <h1 className="text-5 md:text-6">Featured Movies</h1>
 
-        <Link to='' >See More</Link>
+        <Link to='' className="text-#BE123C/700 text-4">See More <i className="fa fa-chevron-right"></i></Link>
       </div>
 
 
@@ -45,7 +45,7 @@ const MoviesContainer = () => {
                 <p className='text-2xl text-center '>Loading...</p>
             ) : (
                 
-        <div class="grid grid-cols-2 lg:grid-cols-4 md:grid-cols-2 gap-4">
+        <div className="grid grid-cols-2 lg:grid-cols-4 sm:grid-cols-2 md:grid-cols-4 gap-4">
           {moviesDetails.map((item, id) => (
             <MovieCard key={id} movie={item} />
           ))}
