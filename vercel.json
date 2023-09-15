@@ -1,0 +1,9 @@
+{
+    "rewrites": [
+      {
+        "source": "/movies/([^/]+)",
+        "destination": "/index.html"
+      }
+    ]
+  }
+  
