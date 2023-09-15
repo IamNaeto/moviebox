@@ -11,7 +11,7 @@ const MoviesContainer = () => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        fetch(requests.requestPopular)
+        fetch(requests.topRated)
             .then(res => {
                 if (!res.ok) {
                     throw new Error('Network response was not ok');
