@@ -7,6 +7,7 @@ import fruit from "./assets/imgs/fruit.png"
 import requests from '../components/Request'
 import { useState } from 'react'
 import { useEffect } from 'react'
+import Searchbar from '../components/Searchbar'
 
 function Home() {
 
@@ -50,15 +51,15 @@ function Home() {
               <h2 className='text-5 md:text-6'>MovieBox</h2>
             </Link>
 
-            <div className='relative flex  md:w-50%'>
-              <input
-                className='w-full bg-transparent rounded-1 p-3 text-white border-2 border-solid border-white placeholder-white outline-none hidden md:block'
-                type="search"
-                placeholder='What do you want to watch?'
-              />
-              <i className='fa fa-search absolute self-center right-3 z-24 cursor-pointer'></i>
-            </div>
+          {/* Search bar for larger screens */}
+          <div className="hidden md:flex w-50%">
+            <Searchbar />
+          </div>
 
+          {/* Search bar for mobile screens */}
+          <div className={`absolute top-15 px-20 left-0 right-0 block md:hidden`}>
+            <Searchbar />
+          </div>
 
             <div className='flex justify-between items-center'>
               <Link to="" className='text-white text-4 signin'>Sign In</Link>
@@ -69,7 +70,7 @@ function Home() {
           </header>
 
 
-          <section className='ml-3 md:ml-5% text-white w-95% mt-20'>
+          <section className='ml-3 md:ml-5% text-white w-95% md:w-30% mt-20'>
             <h1 className='text-10 md:text-12'>{movie?.title}</h1>
 
             <div className='flex my-3 text-4 w-full'>
