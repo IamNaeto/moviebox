@@ -49,7 +49,7 @@ const Movies = () => {
 
   useEffect(() => {
     // Update the URL when the `id` changes
-    navigate(`/movie/${id}`); // Use navigate instead of history.push
+    navigate(`/movies/${id}`); // Use navigate instead of history.push
   }, [id, navigate]);
 
   // Function to format movie runtime in hours and minutes
@@ -67,7 +67,7 @@ const Movies = () => {
 
     return ( 
         <main className="w-100%  md:flex-row flex flex-col">
-            <div className={`absolute md:relative md:block bg-white h-screen rounded-tr-10 rounded-br-10 border border-gray-600 border-solid z-1 w-50% md:w-20% mr-5 ${activeClass}`}  >
+            <div className={`absolute md:relative md:block bg-white h-screen rounded-tr-10 rounded-br-10  z-1 w-50% md:w-20% mr-5 shadow-2xl ${activeClass}`}  >
             <Link to="/" className='flex items-center mt-3 mb-2 p-5%  text-gray-600 '>
               <img src={tv} alt="logo" className='mr-10px'/>
               <h2 className='text-5'>MovieBox</h2>
@@ -120,11 +120,14 @@ const Movies = () => {
               // Display movie details once loading is complete
                 <div className="w-full relative px-4 md:py-none">
                     <div className="w-full relative ">
+                      {movie.backdrop_path ?
                         <img 
                         src={`https://image.tmdb.org/t/p/original/${movie?.backdrop_path}`}
                         alt={movie?.title}
                         loading="lazy" 
                         className="w-full h-50 md:h-100 rounded-4"/>
+                        : <div className="text-xl text-center animate-bounce duration-500">No Image Found</div>
+                      }
 
               <div className="absolute  top-0 right-0 w-full h-60 md:h-[300px] lg:h-[449px] rounded-xl overflow-hidden flex justify-center  items-center  ">
                     <i className="fa fa-youtube-play hover-text-#B91C1C text-white motion-safe:animate-pulse  duration-500 cursor-pointer  text-7xl"></i>

@@ -19,7 +19,8 @@ const MovieCard = ({ movie }) => {
   return (
     <section className="box" data-testid="movie-card">
       <div className="w-full relative">
-      <Link to={`/movie/${movie.id}`}>
+      <Link to={`/movies/${movie.id}`}>
+        {movie.poster_path ?
         <img
           src={`https://image.tmdb.org/t/p/original/${movie?.poster_path}`}
           loading="lazy" 
@@ -27,6 +28,8 @@ const MovieCard = ({ movie }) => {
           className="w-full h-full relative"
           data-testid="movie-poster"
         />
+        : <div className="text-xl text-center animate-bounce duration-500">No Image Found</div>
+        }
         </Link>
         <img
           onClick={handleFavourite}

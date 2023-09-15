@@ -67,12 +67,15 @@ const Searchbar = () => {
                     <ul>
                         {results.map((movie) => (
                             <li key={movie?.id} className="flex items-center p-2 border-b">
-                                <Link to={`/movie/${movie?.id}`}>
+                                <Link to={`/movies/${movie?.id}`}>
+                                    {movie.poster_path ?
                                     <img
                                         src={`${POSTER_BASE_URL}${movie?.poster_path}`}
                                         alt={movie?.title}
                                         className="w-10 h-10"
                                     />
+                                    : <div className='text-4 text-center animate-bounce duration-500'>No Image Found</div>
+                                    }
                                     <p className="text-black ml-2">{movie?.title}</p>
                                 </Link>
                             </li>
