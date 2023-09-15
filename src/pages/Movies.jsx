@@ -1,44 +1,34 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { useParams } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
-import "../App.css"
-import { Link } from 'react-router-dom'
-import tv from "../assets/imgs/tv.png"
-import Home from "../assets/imgs/Home.png"
-import TVShow from "../assets/imgs/TV Show.png"
-import MovieProjector from "../assets/imgs/Movie Projector.png"
-import Calender from "../assets/imgs/Calendar.png"
-import Logout from "../assets/imgs/Logout.png"
-import Star from "../assets/imgs/Star.png"
-import Tickets from "../assets/imgs/Two Tickets.png"
-import ListBlack from "../assets/imgs/ListBlack.png"
-import ListWhite from "../assets/imgs/ListWhite.png"
-import BestMovies from "../assets/imgs/BestMovies.png"
+import { useParams, useNavigate } from "react-router-dom";
+import "../App.css";
+import { Link } from "react-router-dom";
+import tv from "../assets/imgs/tv.png";
+import Home from "../assets/imgs/Home.png";
+import TVShow from "../assets/imgs/TV Show.png";
+import MovieProjector from "../assets/imgs/Movie Projector.png";
+import Calender from "../assets/imgs/Calendar.png";
+import Logout from "../assets/imgs/Logout.png";
+import Star from "../assets/imgs/Star.png";
+import Tickets from "../assets/imgs/Two Tickets.png";
+import ListBlack from "../assets/imgs/ListBlack.png";
+import ListWhite from "../assets/imgs/ListWhite.png";
+import BestMovies from "../assets/imgs/BestMovies.png";
 
 const Movies = () => {
+  const key = "420ea1ce6b91149d335150a115e26337";
+  const { id } = useParams();
+  const navigate = useNavigate();
 
-  // My API key for themoviedb.org
-const key = "420ea1ce6b91149d335150a115e26337";
+  const [movie, setMovie] = useState({});
+  const [loading, setLoading] = useState(true);
+  const [sideBar, setSideBar] = useState(false);
 
- // Extract the "id" parameter from the URL using useParams
- const { id } = useParams();
-
- // Define state variables to store movie details and loading state
- const [movie, setMovie] = useState({});
- const [loading, setLoading] = useState(true);
- const [sideBar, setSideBar] = useState(false);
-
-
-//  Handle the side bar active state
   function handleSideBar() {
     setSideBar((prevSideBar) => !prevSideBar);
   }
 
-  const activeClass = sideBar ? 'block' : 'hidden'
-
-   // Get the history object to update the URL
-  const navigate = useNavigate(); // Initialize navigate
+  const activeClass = sideBar ? "block" : "hidden";
 
   useEffect(() => {
     const fetchMovieDetails = async () => {
@@ -55,11 +45,12 @@ const key = "420ea1ce6b91149d335150a115e26337";
     };
 
     fetchMovieDetails();
+  }, [id]);
 
+  useEffect(() => {
     // Update the URL when the `id` changes
     navigate(`/movie/${id}`); // Use navigate instead of history.push
   }, [id, navigate]);
-
 
   // Function to format movie runtime in hours and minutes
   const formatRuntime = (minutes) => {
@@ -124,7 +115,7 @@ const key = "420ea1ce6b91149d335150a115e26337";
             </div>
             {/* Movie details */}
           {loading ? (
-            <p>Loading...</p>
+            <p className="text-xl text-center animate-ping duration-500">Loading...</p>
           ) : (
               // Display movie details once loading is complete
                 <div className="w-full relative px-4 md:py-none">

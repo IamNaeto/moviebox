@@ -42,7 +42,7 @@ const MoviesContainer = () => {
 
       <div className="container w-full mt-6 ">
       {loading ? (
-                <p className='text-2xl text-center '>Loading...</p>
+                <p className='text-xl text-center animate-ping duration-500'>Loading...</p>
             ) : (
                 
         <div className="grid grid-cols-2 lg:grid-cols-4 sm:grid-cols-2 md:grid-cols-4 gap-4">
