@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "../App.css"
 import { Link } from 'react-router-dom'
 import tv from "../assets/imgs/tv.png"
@@ -35,29 +36,29 @@ const key = "420ea1ce6b91149d335150a115e26337";
   }
 
   const activeClass = sideBar ? 'block' : 'hidden'
+
+   // Get the history object to update the URL
+  const navigate = useNavigate(); // Initialize navigate
+
   useEffect(() => {
     const fetchMovieDetails = async () => {
       try {
-        // Make an API request to fetch movie d
         const response = await axios.get(
           `https://api.themoviedb.org/3/movie/${id}?api_key=${key}&language=en-US`
         );
         setMovie(response.data);
-
-        // Set the movie details in the state and mark loading as complete
-        setMovie(response.data);
         setLoading(false);
       } catch (error) {
-        // Handle errors, if any, and mark loading as complete
         console.error("Error fetching movie details:", error);
         setLoading(false);
       }
     };
 
     fetchMovieDetails();
-  }, [id]);
-  console.log(movie);
-  
+
+    // Update the URL when the `id` changes
+    navigate(`/movie/${id}`); // Use navigate instead of history.push
+  }, [id, navigate]);
 
 
   // Function to format movie runtime in hours and minutes

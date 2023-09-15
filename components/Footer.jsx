@@ -20,7 +20,7 @@ const Footer = () => {
                 <a  className="text-#111827 lg:text-4.5 md:text-3 text-3" href="">Press Room</a>
             </div>
 
-            <p className="text-#6B7280 lg:text-4.5 md:text-3 text-3">© 2021 MovieBox by Charles Obimnaeto Egesionu  </p>
+            <p className="text-#6B7280 lg:text-4.5 md:text-3 text-3">© 2023 MovieBox by Charles Obimnaeto Egesionu  </p>
         </footer>
      );
 }
