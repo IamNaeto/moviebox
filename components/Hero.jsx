@@ -1,17 +1,13 @@
-import './App.css'
 import { Link } from 'react-router-dom'
-import tv from "./assets/imgs/tv.png"
-import menu from "./assets/imgs/Menu.png"
-import IMDb from "./assets/imgs/IMDb.png"
-import fruit from "./assets/imgs/fruit.png"
-import requests from '../components/Request'
+import IMDb from "../src/assets/imgs/IMDb.png"
+import fruit from "../src/assets/imgs/fruit.png"
+import requests from './Request'
 import { useState } from 'react'
 import { useEffect } from 'react'
-import Searchbar from '../components/Searchbar'
+import NavBar from './NavBar'
 
-function Home() {
-
-  const [movies, setMovies] = useState([]);
+const Hero = () => {
+    const [movies, setMovies] = useState([]);
 
   const movie = movies[Math.floor(Math.random() * movies.length)]
 
@@ -45,32 +41,10 @@ function Home() {
   }
   return (
         <div className='w-full bg-cover bg-center h-screen bg-gradient-to-r from-black to-gray-400 ' loading="lazy" style={backgroundStyle}>
-          <header className='flex items-center justify-between w-full px-3 py-4 md:px-5% md:py-5 text-white'>
-            <Link to="/" className='flex items-center text-white'>
-              <img src={tv} alt="logo" className='mr-2 w-10 md:w-15'/>
-              <h2 className='text-5 md:text-6'>MovieBox</h2>
-            </Link>
-
-          {/* Search bar for larger screens */}
-          <div className="hidden md:flex w-50%">
-            <Searchbar />
-          </div>
-
-          {/* Search bar for mobile screens */}
-          <div className={`absolute top-15 px-20 left-0 right-0 block md:hidden`}>
-            <Searchbar />
-          </div>
-
-            <div className='flex justify-between items-center'>
-              <Link to="" className='text-white text-4 signin'>Sign In</Link>
-              <Link to="" className='ml-2'>
-              <img src={menu} alt="menu" className=''/>
-              </Link>
-            </div>
-          </header>
+         <NavBar />
 
 
-          <section className='ml-3 md:ml-5% text-white w-95% md:w-30% mt-20'>
+          <section className='ml-3 md:ml-5% text-white w-95% md:w-30% mt-30 md:mt-20'>
             <h1 className='text-10 md:text-12'>{movie?.title}</h1>
 
             <div className='flex my-3 text-4 w-full'>
@@ -90,5 +64,5 @@ function Home() {
         </div>
   )
 }
-
-export default Home
+ 
+export default Hero;

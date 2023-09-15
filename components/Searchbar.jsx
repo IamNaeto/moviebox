@@ -46,7 +46,7 @@ const Searchbar = () => {
     return (
         <div className="relative md:w-full">
             <input
-                className=" w-full bg-transparent rounded-1 p-3 text-white text:1.5 md:text-4 border-2 border-solid border-white placeholder-white outline-none"
+                className=" w-full bg-transparent rounded-1 p-3 text-white text:2 md:text-4 border-2 border-solid border-white placeholder-white outline-none"
                 type="search"
                 placeholder="What do you want to watch?"
                 onChange={handleInputChange}

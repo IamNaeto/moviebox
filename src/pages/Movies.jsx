@@ -1,19 +1,19 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
-import "../src/App.css"
+import "../App.css"
 import { Link } from 'react-router-dom'
-import tv from "../src/assets/imgs/tv.png"
-import Home from "../src/assets/imgs/Home.png"
-import TVShow from "../src/assets/imgs/TV Show.png"
-import MovieProjector from "../src/assets/imgs/Movie Projector.png"
-import Calender from "../src/assets/imgs/Calendar.png"
-import Logout from "../src/assets/imgs/Logout.png"
-import Star from "../src/assets/imgs/Star.png"
-import Tickets from "../src/assets/imgs/Two Tickets.png"
-import ListBlack from "../src/assets/imgs/ListBlack.png"
-import ListWhite from "../src/assets/imgs/ListWhite.png"
-import BestMovies from "../src/assets/imgs/BestMovies.png"
+import tv from "../assets/imgs/tv.png"
+import Home from "../assets/imgs/Home.png"
+import TVShow from "../assets/imgs/TV Show.png"
+import MovieProjector from "../assets/imgs/Movie Projector.png"
+import Calender from "../assets/imgs/Calendar.png"
+import Logout from "../assets/imgs/Logout.png"
+import Star from "../assets/imgs/Star.png"
+import Tickets from "../assets/imgs/Two Tickets.png"
+import ListBlack from "../assets/imgs/ListBlack.png"
+import ListWhite from "../assets/imgs/ListWhite.png"
+import BestMovies from "../assets/imgs/BestMovies.png"
 
 const Movies = () => {
 
@@ -34,8 +34,7 @@ const key = "420ea1ce6b91149d335150a115e26337";
     setSideBar((prevSideBar) => !prevSideBar);
   }
 
-  const activeClass = sideBar ? 'block' : 'hidden';
- 
+  const activeClass = sideBar ? 'block' : 'hidden'
   useEffect(() => {
     const fetchMovieDetails = async () => {
       try {
@@ -158,7 +157,7 @@ const key = "420ea1ce6b91149d335150a115e26337";
                           <p className=" text-#B91C1C p-2 lg:px-4 lg:py-2 border-2 border-solid border-#F8E7EB border-rounded-8">Drama</p>
                           </div>
 
-                            <img src={Star} alt="" className="w-5 md:w-8"/>
+                            <img src={Star} alt="" className="w-4 md:w-6"/>
                             <p className="text-#E8E8E8">8.5</p>
                             <p> | 350k</p>
                         </div>
