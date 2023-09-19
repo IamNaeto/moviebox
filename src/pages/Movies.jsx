@@ -67,44 +67,44 @@ const Movies = () => {
 
     return ( 
         <main className="w-100%  md:flex-row flex flex-col">
-            <div className={`absolute md:relative md:block bg-white h-screen rounded-tr-10 rounded-br-10  z-1 w-50% md:w-20% mr-5 shadow-2xl ${activeClass}`}  >
+            <div className={`absolute md:relative md:block bg-white h-screen rounded-tr-10 rounded-br-10  z-1 w-40% md:w-20% mr-5 shadow-2xl ${activeClass}`}  >
             <Link to="/" className='flex items-center mt-3 mb-2 p-5%  text-gray-600 '>
-              <img src={tv} alt="logo" className='mr-10px'/>
-              <h2 className='text-5'>MovieBox</h2>
+              <img src={tv} alt="logo" className='w-8 md:w-8 mr-1 md:mr-4'/>
+              <h2 className='text-4 md:text-5'>MovieBox</h2>
             </Link>
 
             <Link to="/" className='flex items-center text-black p-10%   text-gray-600 transition-colors hover:text-#be123c hover:bg-#be123c1a'>
-              <img src={Home} alt="logo" className='mr-10px'/>
-              <h2 className='text-5'>Home</h2>
+              <img src={Home} alt="logo" className='w-5 md:w-8 mr-1 md:mr-4'/>
+              <h2 className='text-4 md:text-5'>Home</h2>
             </Link>
 
             <Link to="" className='flex items-center text-black p-10%  text-#666 bg-#BE123C1A border-r-4 border-r-solid border-r-#be123c'>
-              <img src={MovieProjector} alt="logo" className='mr-10px'/>
-              <h2 className='text-5 text-#BE123C'>Movies</h2>
+              <img src={MovieProjector} alt="logo" className='w-5 md:w-8 mr-1 md:mr-4'/>
+              <h2 className='text-4 md:text-5 text-#BE123C'>Movies</h2>
             </Link>
 
             <Link to="" className='flex items-center text-black p-10% text-gray-600 transition-colors hover:text-#be123c hover:bg-#be123c1a'>
-              <img src={TVShow} alt="logo" className='mr-10px'/>
-              <h2 className='text-5'>TV Series</h2>
+              <img src={TVShow} alt="logo" className='w-5 md:w-8 mr-1 md:mr-4'/>
+              <h2 className='text-4 md:text-5'>TV Series</h2>
             </Link>
 
             <Link to="" className='flex items-center text-black p-10% text-20  text-gray-600 transition-colors hover:text-#be123c hover:bg-#be123c1a'>
-              <img src={Calender} alt="logo" className='mr-10px'/>
-              <h2 className='text-5'>Upcoming</h2>
+              <img src={Calender} alt="logo" className='w-5 md:w-8 mr-1 md:mr-4'/>
+              <h2 className='text-4 md:text-5'>Upcoming</h2>
             </Link>
 
             <div className="mx-10% my-1 px-5% py-3% border border-#BE123CB2 border-solid flex flex-col items-center bg-#F8E7EB66 rounded-2">
                 <div>
-                <p className="text-4">Play movie quizes and earn free tickets</p>
-                <p className="text-3 my-2">50k people are playing now</p>
+                <p className="text-3 md:text-4">Play movie quizes and earn free tickets</p>
+                <p className="text-2 md:text-3 my-2">50k people are playing now</p>
                 </div>
 
-                <p className="text-#BE123C p-1.5 rounded-4 border-1 border-solid cursor-pointer transition-colors hover:text-white hover:bg-#be123c"><b>Start playing</b></p>
+                <p className="text-#BE123C text-3 md:text-4 p-1.5 rounded-4 border-1 border-solid cursor-pointer transition-colors hover:text-white hover:bg-#be123c"><b>Start playing</b></p>
             </div>
 
             <Link to="/" className='flex items-center text-black p-5%  text-gray-600 transition-colors hover:text-#be123c hover:bg-#be123c1a'>
-              <img src={Logout} alt="logo" className='mr-10px'/>
-              <h2 className='text-5'>Log out</h2>
+              <img src={Logout} alt="logo" className='w-5 md:w-8 mr-1 md:mr-4'/>
+              <h2 className='text-4 md:text-5'>Log out</h2>
             </Link>
 
             </div>

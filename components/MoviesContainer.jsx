@@ -11,7 +11,7 @@ const MoviesContainer = () => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        fetch(requests.topRated)
+        fetch(requests.requestPopular)
             .then(res => {
                 if (!res.ok) {
                     throw new Error('Network response was not ok');
@@ -19,7 +19,7 @@ const MoviesContainer = () => {
                 return res.json();
             })
             .then(data => {
-                setMoviesDetails(data.results.slice(0, 10));
+                setMoviesDetails(data.results.slice(0, 24));
                 setLoading(false);
             })
             .catch(error => {
