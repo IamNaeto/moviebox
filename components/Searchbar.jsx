@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom'; // Import Link from React Router
+import { Link } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
 const Searchbar = () => {
     const [query, setQuery] = useState('');
@@ -8,6 +9,34 @@ const Searchbar = () => {
     const [showResults, setShowResults] = useState(false);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
+    const [isScrolled, setIsScrolled] = useState(false);
+    const location = useLocation();
+
+    useEffect(() => {
+      const handleScroll = () => {
+        if (window.scrollY > 0) {
+          setIsScrolled(true);
+        } else {
+          setIsScrolled(false);
+        }
+      };
+  
+      window.addEventListener('scroll', handleScroll);
+  
+      return () => {
+        window.removeEventListener('scroll', handleScroll);
+      };
+    }, []);
+
+    let search, icon
+  
+      if (location.pathname === '/') {
+        search = `w-full bg-transparent rounded-1 p-3 text:2 md:text-4 border-2 border-solid outline-none ${isScrolled ? 'text-black border-black placeholder-black' : 'text-white border-white placeholder-white '}`;
+        icon = `fa fa-search absolute top-4 md:top-2 right-3 z-10 cursor-pointer text-3 md:text-6 ${isScrolled ? 'text-black' : 'text-white'}`
+      } else if (location.pathname === '/moremovies') {
+        search = `w-full bg-transparent rounded-1 p-3 text:2 md:text-4 border-2 border-solid outline-none text-black border-black placeholder-black`;
+        icon = `fa fa-search absolute top-4 md:top-2 right-3 z-10 cursor-pointer text-3 md:text-6 text-black'}`
+      }
 
     const API_KEY = "420ea1ce6b91149d335150a115e26337";
     const BASE_URL = "https://api.themoviedb.org/3";
@@ -46,13 +75,13 @@ const Searchbar = () => {
     return (
         <div className="relative md:w-full">
             <input
-                className=" w-full bg-transparent rounded-1 p-3 text-white text:2 md:text-4 border-2 border-solid border-white placeholder-white outline-none"
+                className={search}
                 type="search"
                 placeholder="What do you want to watch?"
                 onChange={handleInputChange}
                 value={query}
             />
-            <i className="fa fa-search absolute top-4 md:top-2 right-3 z-10 cursor-pointer text-white text-3 md:text-6"></i>
+            <i className={icon}></i>
 
             {/* Separate div for the loading text */}
             {loading && (

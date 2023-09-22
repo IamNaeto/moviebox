@@ -3,40 +3,68 @@ import '../src/App.css'
 import { useEffect } from "react";
 import { useState } from "react";
 import { Link } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import requests from "./Request";
 import MovieCard from "./MovieCard";
 
 const MoviesContainer = () => {
+    const location = useLocation();
     const [moviesDetails, setMoviesDetails] = useState([])
     const [loading, setLoading] = useState(true);
 
-    useEffect(() => {
-        fetch(requests.requestPopular)
-            .then(res => {
-                if (!res.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return res.json();
-            })
-            .then(data => {
-                setMoviesDetails(data.results.slice(0, 24));
-                setLoading(false);
-            })
-            .catch(error => {
-                console.error('Error fetching data:', error);
-                setLoading(false);
-            });
-    }, []);
+    let section, url, text, icon;
+  
+      if (location.pathname === '/') {
+        section = `px-3% md:px-10% sm:px-5% pt-10 pb-5 container`
+        url = "/moremovies";
+        text = "See More";
+        icon = "fa fa-chevron-right ${} ml-2"
+      } else if (location.pathname === '/moremovies') {
+        section = `pt-40 pb-5 px-3% md:px-10% sm:px-5% md:pt-35 md:pb-15 container`
+        url = "/";
+        text = "See Less";
+        icon = "fa fa-chevron-left ${} ml-2"
+      }
 
-    console.log(moviesDetails)
+
+    useEffect(() => {
+      let startSlice, endSlice;
+  
+      if (location.pathname === '/') {
+        startSlice = 0;
+        endSlice = 12;
+      } else if (location.pathname === '/moremovies') {
+        startSlice = 12;
+        endSlice = 20;
+      }
+  
+      fetch(requests.requestTrending)
+        .then((res) => {
+          if (!res.ok) {
+            throw new Error('Network response was not ok');
+          }
+          return res.json();
+        })
+        .then((data) => {
+          setMoviesDetails(data.results.slice(startSlice, endSlice));
+          setLoading(false);
+        })
+        .catch((error) => {
+          console.error('Error fetching data:', error);
+          setLoading(false);
+        });
+    }, [location.pathname]);
+  
+
+    // console.log(moviesDetails)
    
 
   return (
-    <section className="py-5 px-3% md:px-10% sm:px-5%  container">
+    <section className={section}>
       <div className="flex justify-between items-center">
         <h1 className="text-5 md:text-6">Featured Movies</h1>
 
-        <Link to='' className="text-#BE123C/700 text-4">See More <i className="fa fa-chevron-right"></i></Link>
+        <Link to={url} className="text-#BE123C/700 text-4 flex items-center">{text}<i className={icon}></i></Link>
       </div>
 
 

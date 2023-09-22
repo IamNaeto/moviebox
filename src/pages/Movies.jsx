@@ -30,6 +30,13 @@ const Movies = () => {
 
   const activeClass = sideBar ? "block" : "hidden";
 
+  let toggle;
+  if (activeClass === "hidden"){
+    toggle =" fa fa-bars text-#B91C1C text-7 flex ml-auto cursor-pointer"
+  }else{
+    toggle=" fa fa-times text-#B91C1C text-7 flex ml-auto cursor-pointer";
+  }
+
   useEffect(() => {
     const fetchMovieDetails = async () => {
       try {
@@ -67,9 +74,9 @@ const Movies = () => {
 
     return ( 
         <main className="w-100%  md:flex-row flex flex-col">
-            <div className={`absolute md:relative md:block bg-white h-screen rounded-tr-10 rounded-br-10  z-1 w-40% md:w-20% mr-5 shadow-2xl ${activeClass}`}  >
-            <Link to="/" className='flex items-center mt-3 mb-2 p-5%  text-gray-600 '>
-              <img src={tv} alt="logo" className='w-8 md:w-8 mr-1 md:mr-4'/>
+            <div className={`absolute md:fixed md:block bg-white h-screen rounded-tr-10 rounded-br-10  z-1 w-40% md:w-20% mr-5 shadow-2xl ${activeClass}`}  >
+            <Link to="/" className='flex items-center mt-3 px-5% py-2% text-gray-600'>
+              <img src={tv} alt="logo" className='w-10 md:w-12 mr-1 md:mr-4'/>
               <h2 className='text-4 md:text-5'>MovieBox</h2>
             </Link>
 
@@ -109,9 +116,9 @@ const Movies = () => {
 
             </div>
 
-            <section className="w-full md:w-80% mt-5 md:mr-4 h-screen">
+            <section className="w-full left-0  relative md:left-20% md:w-80% mt-5 md:mr-4 h-screen">
             <div className="md:hidden w-full flex items-end justify-end pr-6 mb-3">
-            <i className=" fa fa-bars text-#B91C1C text-7 flex ml-auto cursor-pointer" onClick={handleSideBar}></i>
+            <i className={toggle} onClick={handleSideBar}></i>
             </div>
             {/* Movie details */}
           {loading ? (
@@ -134,7 +141,7 @@ const Movies = () => {
                 </div>
                     </div>
 
-                    <div className="flex flex-col lg:flex-row justify-between items-center mx-4">
+                    <div className="flex flex-col lg:flex-row justify-between items-center mx-0 md:mx-4">
                         <div className="flex items-center text-3 md:text-4 gap-none md:gap-1 mt-2">
                         <p data-testid="movie-title">{movie?.title}</p>
                         <p>•</p>
@@ -158,7 +165,7 @@ const Movies = () => {
                         </div>
                     </div>
 
-                    <div className="flex flex-col md:flex-row justify-between m-4 gap-2">
+                    <div className="flex flex-col md:flex-row justify-between  mx-0 my-2 md:m-4 gap-2">
                     <p data-testid="movie-overview" className="w-full md:w-65% text-3.5 md:text-4.5">{movie?.overview}</p>
 
                     <div className="w-full md:w-35% flex flex-col">
@@ -167,7 +174,7 @@ const Movies = () => {
                     </div>
                     </div>
 
-                    <div className="mx-4 flex flex-col md:flex-row">
+                    <div className="mx-0 md:mx-4 flex flex-col md:flex-row">
                       <div className="w-full md:w-65% text-3 md:text-4.5">
                         <p className="mb-4">Director : <span className="text-#BE123C">Joseph Kosinski</span></p>
                         <p className="mb-4">Writers : <span className="text-#BE123C">Jim Cash, Jack Epps Jr,  Peter Craig</span></p>

@@ -12,7 +12,7 @@ const Hero = () => {
   const movie = movies[Math.floor(Math.random() * movies.length)]
 
   useEffect(() => {
-    fetch(requests.requestTrending)
+    fetch(requests.requestNowplaying)
         .then(res => {
             if (!res.ok) {
                 throw new Error('Network response was not ok');
@@ -36,11 +36,23 @@ const Hero = () => {
   }
 
 
-  const backgroundStyle = {
-    backgroundImage: `url(https://image.tmdb.org/t/p/original/${movie?.backdrop_path})`,
-  }
+  // const backgroundStyle = {
+  //   backgroundImage: `url(https://image.tmdb.org/t/p/original/${movie?.backdrop_path})`,
+  // }
+
+  const backgroundImageUrl = movie?.backdrop_path
+  ? `url(https://image.tmdb.org/t/p/original/${movie.backdrop_path})`
+  : 'linear-gradient(to right, black, gray)';
+
   return (
-        <div className='w-full bg-cover bg-center h-screen bg-gradient-to-r from-black to-gray-400 ' loading="lazy" style={backgroundStyle}>
+        <div
+          className="w-full bg-cover bg-center h-screen"
+          style={{
+            backgroundImage: backgroundImageUrl,
+          }}
+          loading="lazy"
+        >
+
          <NavBar />
 
 
@@ -59,7 +71,7 @@ const Hero = () => {
 
             <p className='my-8 pr-4 text-4'>{truncateString(movie?.overview, 200)}</p>
 
-            <Link to="" className='text-white py-2 px-5 rounded-1 bg-#BE123C hover:bg-red-500 transition'><i className="fa fa-play-circle"></i>  WATCH TRAILER</Link>
+            <Link to={`/movies/${movie?.id}`} className='text-white py-2 px-5 rounded-1 bg-#BE123C hover:bg-red-500 transition'><i className="fa fa-play-circle"></i>  WATCH TRAILER</Link>
           </section>
         </div>
   )
